@@ -19,37 +19,14 @@ namespace LeetCode
         public static int[] First = new int[] { 3, 3, 3, 3, 5, 5, 5, 2, 2, 7 };
     }
 
-    public class IntAmmountInArray
-    {
-        /// <summary>
-        /// Holds each int and the amount of times it appears on a given Array
-        /// Array does not accept values < 1, so by default instantiate the values with 0;
-        /// </summary>
-        public IntAmmountInArray()
-        {
-            Integer = 0;
-            AmountInArray = 0;
-        }
-
-        public IntAmmountInArray(int integer, int amountInArray)
-        {
-            Integer = integer;
-            AmountInArray = amountInArray;
-        }
-
-        public int Integer { get; set; }
-        public int AmountInArray  { get; set; }
-    }
-
-
     // 1) and 3) allows us to use the integer in the Array as the index of the IntAmountInArray[] within IntAmmountLogicProcessor
     public class IntAmountLogicProcessor
     {
-        private IntAmmountInArray[] IntsInArray { get; }
+        private int?[] IntsInArray { get; }
 
         public IntAmountLogicProcessor()
         {
-            IntsInArray = new IntAmmountInArray[Constants.MaxArraySize];
+            IntsInArray = new int?[Constants.MaxArraySize];
         }
 
         public void ProcessInt(int i)
@@ -65,7 +42,8 @@ namespace LeetCode
 
         private void InitInt(int i)
         {
-            IntsInArray[i + 1] = new IntAmmountInArray(i, 1);
+            // should validate i won't break the Array indexing
+            IntsInArray[i - 1] = 1;
         }
     }
        
@@ -75,8 +53,6 @@ namespace LeetCode
         static void Main(string[] args)
         {
             IntAmountLogicProcessor intAmountLogicProcessor = new IntAmountLogicProcessor();
-
-            var a = new IntAmmountInArray();
 
             foreach (int i in Examples.First)
             {
