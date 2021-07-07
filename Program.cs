@@ -24,6 +24,7 @@ namespace LeetCode
     {
         private int?[] IntsInArray { get; }
         private int _Result { get; set; } // default value ? -> should not allow inconsitence
+        private int ArraySize { get; set; }
 
         /// <summary>
         /// this class is not reusable, we need to find a way to pass an array as paramater, and let the processor estimate the result
@@ -31,6 +32,7 @@ namespace LeetCode
         public IntAmountLogicProcessor()
         {
             IntsInArray = new int?[Constants.MaxArraySize];
+            ArraySize = 0;
         }
 
         #region Processing
@@ -49,6 +51,8 @@ namespace LeetCode
             {
                 Count(i);
             }
+
+            ArraySize += 1;
         }
 
         public void LogStatus()
@@ -116,7 +120,15 @@ namespace LeetCode
             // minimun amount of int in the set that removing them make the array be less than the have
             // I don't care which is the number that needs to be removed, I just care about what is the minimun amount of numbers I can remove and achive the goal
             int[] sortedArray = SortArray(IntsInArray);
-            _Result = 1; 
+            _Result = 1;
+
+            int currentAmount = sortedArray[0];
+            int s = 1;
+            while (currentAmount < ArraySize / 2)
+            {
+                currentAmount += sortedArray[_Result];
+                _Result++;
+            }
         }
         #endregion
     }
