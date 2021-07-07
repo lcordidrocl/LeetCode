@@ -83,6 +83,17 @@ namespace LeetCode
         }
         public void GenerateResult()
         {
+            // minimun amount of int in the set that removing them make the array be less than the have
+            int?[] ortedArray = (int?[])IntsInArray.Clone();
+            Array.Sort(ortedArray);
+            Array.Reverse(ortedArray);
+
+            int countingAmount;        
+            // start iterating over the array
+            // sum max amounts until sum is greater than array.length/2
+            // see how to accomplish this
+            int tempResult = 1;
+            
             _Result = 1; 
         }
         #endregion
