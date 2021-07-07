@@ -40,8 +40,6 @@ namespace LeetCode
         /// <param name="i"></param>
         public void ProcessInt(int i)
         {
-            Console.WriteLine($"Processing int {i}");
-
             //validate i matches condition 1)
             if (IntsInArray[i - 1] is null)
             {
@@ -74,6 +72,38 @@ namespace LeetCode
         {
             IntsInArray[i - 1] += 1;
         }
+
+        private int[] SortArray(int?[] array)
+        {
+            int[] result = new int[array.Length];
+
+            // clean nulls
+            int j = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] != null)
+                {
+                    result[j] = (int)array[i];
+                    j++;
+                }
+            }
+
+            int temp;
+            for (int i = 0; i < j ; i++)
+            {
+                for (int k = 1 + i; k < j; k++)
+                {
+                    if (result[i] < result[k]) // Order Descending
+                    {
+                        temp = result[i];
+                        result[i] = result[k];
+                        result[k] = temp;
+                    }
+                }
+            }
+            return result;
+        }
+
         #endregion
 
         #region Result
@@ -84,16 +114,8 @@ namespace LeetCode
         public void GenerateResult()
         {
             // minimun amount of int in the set that removing them make the array be less than the have
-            int?[] ortedArray = (int?[])IntsInArray.Clone();
-            Array.Sort(ortedArray);
-            Array.Reverse(ortedArray);
-
-            int countingAmount;        
-            // start iterating over the array
-            // sum max amounts until sum is greater than array.length/2
-            // see how to accomplish this
-            int tempResult = 1;
-            
+            // I don't care which is the number that needs to be removed, I just care about what is the minimun amount of numbers I can remove and achive the goal
+            int[] sortedArray = SortArray(IntsInArray);
             _Result = 1; 
         }
         #endregion
