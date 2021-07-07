@@ -23,12 +23,21 @@ namespace LeetCode
     public class IntAmountLogicProcessor
     {
         private int?[] IntsInArray { get; }
+        private int _Result { get; set; } // default value ? -> should not allow inconsitence
 
+        /// <summary>
+        /// this class is not reusable, we need to find a way to pass an array as paramater, and let the processor estimate the result
+        /// </summary>
         public IntAmountLogicProcessor()
         {
             IntsInArray = new int?[Constants.MaxArraySize];
         }
 
+        #region Processing
+        /// <summary>
+        /// This could receive the Array as parameter, in that way we remove the coupling between the array defined in the logic processor, and the method
+        /// </summary>
+        /// <param name="i"></param>
         public void ProcessInt(int i)
         {
             Console.WriteLine($"Processing int {i}");
@@ -65,11 +74,22 @@ namespace LeetCode
         {
             IntsInArray[i - 1] += 1;
         }
+        #endregion
+
+        #region Result
+        public int GetResult()
+        {
+            return _Result;
+        }
+        public void GenerateResult()
+        {
+            _Result = 1; 
+        }
+        #endregion
     }
-       
+
     class Program
-    {
-        
+    {        
         static void Main(string[] args)
         {
             IntAmountLogicProcessor intAmountLogicProcessor = new IntAmountLogicProcessor();
@@ -80,6 +100,8 @@ namespace LeetCode
             }
 
             intAmountLogicProcessor.LogStatus();
+            intAmountLogicProcessor.GenerateResult();
+            intAmountLogicProcessor.GetResult();
         }
     }
 }
