@@ -34,9 +34,24 @@ namespace LeetCode
             Console.WriteLine($"Processing int {i}");
 
             //validate i matches condition 1)
-            if (IntsInArray[i+1] is null)
+            if (IntsInArray[i - 1] is null)
             {
                 InitInt(i);
+            }
+            else 
+            {
+                Count(i);
+            }
+        }
+
+        public void LogStatus()
+        {
+            for (int i = 0; i < IntsInArray.Length; i++)
+            {
+                if (IntsInArray[i] != null)
+                {
+                    Console.WriteLine($"int { i + 1 } is { IntsInArray[i] } times in the Array");
+                }
             }
         }
 
@@ -44,6 +59,11 @@ namespace LeetCode
         {
             // should validate i won't break the Array indexing
             IntsInArray[i - 1] = 1;
+        }
+
+        private void Count(int i)
+        {
+            IntsInArray[i - 1] += 1;
         }
     }
        
@@ -58,6 +78,8 @@ namespace LeetCode
             {
                 intAmountLogicProcessor.ProcessInt(i);
             }
+
+            intAmountLogicProcessor.LogStatus();
         }
     }
 }
