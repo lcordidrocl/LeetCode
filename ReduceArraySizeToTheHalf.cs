@@ -140,7 +140,7 @@ namespace LeetCode.ReduceArraySizeToTheHalf
         {
             IntAmountLogicProcessor intAmountLogicProcessor = new IntAmountLogicProcessor();
 
-            foreach (int i in Examples.Error2)
+            foreach (int i in Examples.Error1)
             {
                 intAmountLogicProcessor.ProcessInt(i);
             }

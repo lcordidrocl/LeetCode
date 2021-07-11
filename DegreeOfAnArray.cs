@@ -1,4 +1,6 @@
-﻿namespace LeetCode.DegreeOfAnArray
+﻿using System;
+
+namespace LeetCode.DegreeOfAnArray
 {
     /// <summary>
     /// Degree of an Array: max frequency of any of it's elements ( the element that appear most)
@@ -9,9 +11,9 @@
     /// nums.length will be between 1 and 50,000.
     /// nums[i] will be an integer between 0 and 49,999.
     /// </summary>
-    static class Examples
+    public static class Examples
     {
-        static int[] One = { 1, 2, 2, 3, 1 }; // Degree 2 , Output = 2 {2,2}
+        public static int[] One = { 1, 2, 2, 3, 1 }; // Degree 2 , Output = 2 {2,2}
     }
 
     // To Do:
@@ -26,23 +28,53 @@
 
     public static class DegreeOfAnArrayLogicHelper
     {
-        public int GetDegree(int[] array)
+        public const int LogicArraySize = 50000;
+        public static int GetDegree(int[] array)
         {
-            int maxFrecuency;
-            int 
-            for (int i = 0; i < array.Length; i++)
-            { 
+            int degree = 0;
+            {
+                int[] trackingArray = new int[LogicArraySize];
                 
+                // Process current number
+                foreach (int i in array)
+                {
+                    if (trackingArray[i].Equals(0))
+                    {
+                        trackingArray[i] = 1;
+                    }
+                    else
+                    {
+                        trackingArray[i] += 1;
+                    }
+                    // If MaxDegree update degree
+                    if (trackingArray[i] > degree)
+                    {
+                        degree = trackingArray[i];
+                    }
+                }
+
+                // Log Status
+                for (int i = 0; i < trackingArray.Length; i++)
+                {
+                    if (trackingArray[i] != 0)
+                    {
+                        Console.WriteLine($"int { i } is { trackingArray[i] } times in the Array");
+                    }
+                }
+                
+                Console.WriteLine($"Degree of the array = {degree}");
+
+                return degree;
             }
         }
     }
-     
-
     public static class Problem
     {
-        public static int Run() 
+        public static int Run(int[] array) 
         {
+            DegreeOfAnArrayLogicHelper.GetDegree(array);
             return 1;
         }
     }
 }
+

@@ -6,6 +6,7 @@ namespace LeetCode
     {        
         static void Main(string[] args)
         {
+            DegreeOfAnArray.Problem.Run(DegreeOfAnArray.Examples.One);
         }
     }
 }
