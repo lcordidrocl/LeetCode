@@ -1,5 +1,4 @@
-﻿using LeetCode.ReduceArraySizeToTheHalf;
-using System;
+﻿using System;
 
 namespace LeetCode
 {
@@ -7,7 +6,6 @@ namespace LeetCode
     {        
         static void Main(string[] args)
         {
-            Problem.Run();
         }
     }
 }
