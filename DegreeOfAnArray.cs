@@ -17,7 +17,7 @@ namespace LeetCode.DegreeOfAnArray
     }
 
     // To Do:
-    // Determine the Degree of the array
+    // Think the best way to iterate the array, with all possible combinations [ _ ------- ~ ] , [ ~ ------- _ ] [---- ~ --_--]
     // Find all the SubArrays that have the same Degree as Input
     // Get the shortest length of the selected ones
 
