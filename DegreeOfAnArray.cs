@@ -16,10 +16,44 @@ namespace LeetCode.DegreeOfAnArray
         public static int[] One = { 1, 2, 2, 3, 1 }; // Degree 2 , Output = 2 {2,2}
     }
 
+    /// <summary>
+    /// This class holds all the data related to the frecuency of a number in the array, which is
+    /// - number
+    /// - frecuency
+    /// - lowest index
+    /// - highest index
+    /// </summary>
+    public class NumData
+    {
+        public NumData(int index)
+        {
+            Frecuency = 1;
+            LowestIndex =  index;
+            HighestIndex = index; 
+        }
+
+        public int Frecuency { get; private set; }
+        public int LowestIndex { get; private set; }
+        public int HighestIndex { get; private set; }
+
+        public int Length 
+        {
+            get
+            {
+                return HighestIndex - LowestIndex + 1;
+            }
+        }
+
+        public void Count(int index)
+        {
+            Frecuency++;
+            HighestIndex = index;
+        }
+    }
+
     // To Do:
     // Think the best way to iterate the array, with all possible combinations [ _ ------- ~ ] , [ ~ ------- _ ] [---- ~ --_--]
-    // Find all the SubArrays that have the same Degree as Input
-    // Get the shortest length of the selected ones
+    // Do not need to iterate! need to store index on which the number starts or ends in the array, and take the minimun difference between higher i and lower i, between all the arrays that had same length
 
     // What To Do Involves:
     // iterate at least 1 time all the array.
@@ -33,32 +67,39 @@ namespace LeetCode.DegreeOfAnArray
         {
             int degree = 0;
             {
-                int[] trackingArray = new int[LogicArraySize];
-                
+                NumData[] trackingArray = new NumData[LogicArraySize];
+
+                int index = 0;
+
                 // Process current number
                 foreach (int i in array)
                 {
-                    if (trackingArray[i].Equals(0))
+                    if (trackingArray[i] is null)
                     {
-                        trackingArray[i] = 1;
+                        trackingArray[i] = new NumData(index);
                     }
                     else
                     {
-                        trackingArray[i] += 1;
+                        trackingArray[i].Count(index);
                     }
+
                     // If MaxDegree update degree
-                    if (trackingArray[i] > degree)
+                    if (trackingArray[i].Frecuency > degree)
                     {
-                        degree = trackingArray[i];
+                        degree = trackingArray[i].Frecuency;
                     }
+                    index++;
                 }
 
                 // Log Status
                 for (int i = 0; i < trackingArray.Length; i++)
                 {
-                    if (trackingArray[i] != 0)
+                    if (trackingArray[i] != null)
                     {
-                        Console.WriteLine($"int { i } is { trackingArray[i] } times in the Array");
+                        Console.WriteLine($"Degree for { i }: { trackingArray[i].Frecuency } times in the Array");
+                        Console.WriteLine($"Lowest index: {trackingArray[i].LowestIndex}");
+                        Console.WriteLine($"Highest index: {trackingArray[i].HighestIndex}");
+                        Console.WriteLine($"Array Length {trackingArray[i].Length}");
                     }
                 }
                 
