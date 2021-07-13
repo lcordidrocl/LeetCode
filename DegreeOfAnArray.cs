@@ -14,6 +14,8 @@ namespace LeetCode.DegreeOfAnArray
     public static class Examples
     {
         public static int[] One = { 1, 2, 2, 3, 1 }; // Degree 2 , Output = 2 {2,2}
+        public static int[] Second = { 1,2,2,3,1,4,2 }; // Degree 3 , Output = 6
+        public static int[] Third = { 1, 2, 3, 4, 5, 6, 7, 8, 9}; // Degree 1 , Output = 1
     }
 
     /// <summary>
@@ -65,12 +67,13 @@ namespace LeetCode.DegreeOfAnArray
         public const int LogicArraySize = 50000;
         public static int GetMnimunArrayLengthForArrayDegree(int[] array)
         {
-            int degree = 0;
+            int degree = 1;
+            int index = 0;
+            int lowestInnerArrayLength = 1;
+
             {
                 NumData[] trackingArray = new NumData[LogicArraySize];
 
-                int index = 0;
-                int lowestInnerArrayLength = array.Length;
 
                 // Process current number
                 foreach (int i in array)
@@ -82,18 +85,18 @@ namespace LeetCode.DegreeOfAnArray
                     else
                     {
                         trackingArray[i].Count(index);
-                    }
 
-                    if (trackingArray[i].Frecuency > degree)
-                    {
-                        degree = trackingArray[i].Frecuency;
-                        lowestInnerArrayLength = trackingArray[i].Length;
-                    }
-                    else
-                    {
-                        if (trackingArray[i].Length < lowestInnerArrayLength && trackingArray[i].Frecuency.Equals(degree))
+                        if (trackingArray[i].Frecuency > degree)
                         {
+                            degree = trackingArray[i].Frecuency;
                             lowestInnerArrayLength = trackingArray[i].Length;
+                        }
+                        else
+                        {
+                            if (trackingArray[i].Length < lowestInnerArrayLength && trackingArray[i].Frecuency.Equals(degree))
+                            {
+                                lowestInnerArrayLength = trackingArray[i].Length;
+                            }
                         }
                     }
 
