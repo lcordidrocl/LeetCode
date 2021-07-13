@@ -63,13 +63,14 @@ namespace LeetCode.DegreeOfAnArray
     public static class DegreeOfAnArrayLogicHelper
     {
         public const int LogicArraySize = 50000;
-        public static int GetDegree(int[] array)
+        public static int GetMnimunArrayLengthForArrayDegree(int[] array)
         {
             int degree = 0;
             {
                 NumData[] trackingArray = new NumData[LogicArraySize];
 
                 int index = 0;
+                int lowestInnerArrayLength = array.Length;
 
                 // Process current number
                 foreach (int i in array)
@@ -83,11 +84,19 @@ namespace LeetCode.DegreeOfAnArray
                         trackingArray[i].Count(index);
                     }
 
-                    // If MaxDegree update degree
                     if (trackingArray[i].Frecuency > degree)
                     {
                         degree = trackingArray[i].Frecuency;
+                        lowestInnerArrayLength = trackingArray[i].Length;
                     }
+                    else
+                    {
+                        if (trackingArray[i].Length < lowestInnerArrayLength && trackingArray[i].Frecuency.Equals(degree))
+                        {
+                            lowestInnerArrayLength = trackingArray[i].Length;
+                        }
+                    }
+
                     index++;
                 }
 
@@ -96,7 +105,7 @@ namespace LeetCode.DegreeOfAnArray
                 {
                     if (trackingArray[i] != null)
                     {
-                        Console.WriteLine($"Degree for { i }: { trackingArray[i].Frecuency } times in the Array");
+                        Console.WriteLine($"Degree for { i }: { trackingArray[i].Frecuency }");
                         Console.WriteLine($"Lowest index: {trackingArray[i].LowestIndex}");
                         Console.WriteLine($"Highest index: {trackingArray[i].HighestIndex}");
                         Console.WriteLine($"Array Length {trackingArray[i].Length}");
@@ -104,8 +113,9 @@ namespace LeetCode.DegreeOfAnArray
                 }
                 
                 Console.WriteLine($"Degree of the array = {degree}");
+                Console.WriteLine($"Minimun Length of the inner array = {lowestInnerArrayLength}");
 
-                return degree;
+                return lowestInnerArrayLength;
             }
         }
     }
@@ -113,8 +123,7 @@ namespace LeetCode.DegreeOfAnArray
     {
         public static int Run(int[] array) 
         {
-            DegreeOfAnArrayLogicHelper.GetDegree(array);
-            return 1;
+            return DegreeOfAnArrayLogicHelper.GetMnimunArrayLengthForArrayDegree(array);
         }
     }
 }
