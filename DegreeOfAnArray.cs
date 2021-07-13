@@ -53,18 +53,27 @@ namespace LeetCode.DegreeOfAnArray
         }
     }
 
-    // To Do:
-    // Think the best way to iterate the array, with all possible combinations [ _ ------- ~ ] , [ ~ ------- _ ] [---- ~ --_--]
-    // Do not need to iterate! need to store index on which the number starts or ends in the array, and take the minimun difference between higher i and lower i, between all the arrays that had same length
-
-    // What To Do Involves:
-    // iterate at least 1 time all the array.
-    // While doing so, need to count repetead numbers
-    // The most repetead is the degree.
-
     public static class DegreeOfAnArrayLogicHelper
     {
         public const int LogicArraySize = 50000;
+
+        public static void Log(NumData[] trackingArray, int degree, int lowestInnerArrayLength)
+        {
+            // Log Status
+            for (int i = 0; i < trackingArray.Length; i++)
+            {
+                if (trackingArray[i] != null)
+                {
+                    Console.WriteLine($"Degree for { i }: { trackingArray[i].Frecuency }");
+                    Console.WriteLine($"Lowest index: {trackingArray[i].LowestIndex}");
+                    Console.WriteLine($"Highest index: {trackingArray[i].HighestIndex}");
+                    Console.WriteLine($"Array Length {trackingArray[i].Length}");
+                }
+            }
+
+            Console.WriteLine($"Degree of the array = {degree}");
+            Console.WriteLine($"Minimun Length of the inner array = {lowestInnerArrayLength}");
+        }
         public static int GetMnimunArrayLengthForArrayDegree(int[] array)
         {
             int degree = 1;
@@ -74,8 +83,6 @@ namespace LeetCode.DegreeOfAnArray
             {
                 NumData[] trackingArray = new NumData[LogicArraySize];
 
-
-                // Process current number
                 foreach (int i in array)
                 {
                     if (trackingArray[i] is null)
@@ -91,32 +98,16 @@ namespace LeetCode.DegreeOfAnArray
                             degree = trackingArray[i].Frecuency;
                             lowestInnerArrayLength = trackingArray[i].Length;
                         }
-                        else
+                        else if (trackingArray[i].Length < lowestInnerArrayLength && trackingArray[i].Frecuency.Equals(degree))
                         {
-                            if (trackingArray[i].Length < lowestInnerArrayLength && trackingArray[i].Frecuency.Equals(degree))
-                            {
-                                lowestInnerArrayLength = trackingArray[i].Length;
-                            }
+                            lowestInnerArrayLength = trackingArray[i].Length;
                         }
                     }
 
                     index++;
                 }
 
-                // Log Status
-                for (int i = 0; i < trackingArray.Length; i++)
-                {
-                    if (trackingArray[i] != null)
-                    {
-                        Console.WriteLine($"Degree for { i }: { trackingArray[i].Frecuency }");
-                        Console.WriteLine($"Lowest index: {trackingArray[i].LowestIndex}");
-                        Console.WriteLine($"Highest index: {trackingArray[i].HighestIndex}");
-                        Console.WriteLine($"Array Length {trackingArray[i].Length}");
-                    }
-                }
-                
-                Console.WriteLine($"Degree of the array = {degree}");
-                Console.WriteLine($"Minimun Length of the inner array = {lowestInnerArrayLength}");
+               // Log(trackingArray, degree, lowestInnerArrayLength);
 
                 return lowestInnerArrayLength;
             }
