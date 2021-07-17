@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode", "LeetCode.csproj", "{987AB490-B878-485B-B01E-D1203CD774AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackeRank", "..\hackerrank\HackeRank.csproj", "{96CA76BE-8971-443C-9A6D-72F655B2DA7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackeRank", "HackerRank\HackeRank.csproj", "{980A9272-18C2-4AE9-80F5-20C555AC52B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{987AB490-B878-485B-B01E-D1203CD774AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{987AB490-B878-485B-B01E-D1203CD774AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{987AB490-B878-485B-B01E-D1203CD774AC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96CA76BE-8971-443C-9A6D-72F655B2DA7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96CA76BE-8971-443C-9A6D-72F655B2DA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96CA76BE-8971-443C-9A6D-72F655B2DA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96CA76BE-8971-443C-9A6D-72F655B2DA7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980A9272-18C2-4AE9-80F5-20C555AC52B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980A9272-18C2-4AE9-80F5-20C555AC52B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980A9272-18C2-4AE9-80F5-20C555AC52B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980A9272-18C2-4AE9-80F5-20C555AC52B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
