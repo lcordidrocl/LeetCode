@@ -1,4 +1,4 @@
-﻿using System;
+﻿using LeetCode.ReverseLinkedList;
 
 namespace LeetCode
 {
@@ -6,7 +6,15 @@ namespace LeetCode
     {        
         static void Main(string[] args)
         {
-            DegreeOfAnArray.Problem.Run(DegreeOfAnArray.Examples.One);
+            var head = new ListNode(1, null);
+            var next = new ListNode(2, null);
+            var last = new ListNode(3, null);
+
+            head.next = next;
+            next.next = last;
+
+            var result = ReverseLinkedListLogic.Reverse(head);
+            var a = result.next;
         }
     }
 }
