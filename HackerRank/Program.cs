@@ -9,7 +9,7 @@ namespace hackerrank
     {
         static void Main(string[] args)
         {
-            _2DArray.hourglassSum(_2DArray.FaillingExample());
+            JobCity.segment(3, new List<int>() { 2, 5, 4, 6, 8 });
         }
     }
 }
