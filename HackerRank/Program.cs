@@ -8,7 +8,7 @@ namespace hackerrank
     {
         static void Main(string[] args)
         {
-            JumpingOnClouds.jumpingOnClouds(JumpingOnClouds.Example2);
+            RepeatedString.repeatedString("epsxyyflvrrrxzvnoenvpegvuonodjoxfwdmcvwctmekpsnamchznsoxaklzjgrqruyzavshfbmuhdwwmpbkwcuomqhiyvuztwvq", 549382313570);
         }
     }
 }
