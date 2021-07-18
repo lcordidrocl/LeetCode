@@ -1,4 +1,5 @@
 ﻿using HackeRank;
+using HackeRank.Arrays;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace hackerrank
     {
         static void Main(string[] args)
         {
-            RepeatedString.repeatedString("epsxyyflvrrrxzvnoenvpegvuonodjoxfwdmcvwctmekpsnamchznsoxaklzjgrqruyzavshfbmuhdwwmpbkwcuomqhiyvuztwvq", 549382313570);
+            _2DArray.hourglassSum(_2DArray.FaillingExample());
         }
     }
 }

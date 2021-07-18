@@ -8,6 +8,7 @@ namespace HackeRank
 {
     public static class RepeatedString
     {
+        //  RepeatedString.repeatedString("epsxyyflvrrrxzvnoenvpegvuonodjoxfwdmcvwctmekpsnamchznsoxaklzjgrqruyzavshfbmuhdwwmpbkwcuomqhiyvuztwvq", 549382313570);
         public static long repeatedString(string s, long n)
         {
             long amountOfAsInString = s.Count(c => c.Equals('a'));
