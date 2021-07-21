@@ -68,7 +68,8 @@ namespace HackeRank
             
             for (int currentSpace = 0; currentSpace < space.Count - x; currentSpace++)
             {
-                space[currentSpace] = space.TakeLast(space.Count - currentSpace).Take(x).Min();
+                space[currentSpace] = space.Skip(currentSpace).Take(x).Min(); // intuitive way
+                // space[currentSpace] = space.TakeLast(space.Count - currentSpace).Take(x).Min(); // other option
             }
 
             return space.Take(space.Count - x).Max();
