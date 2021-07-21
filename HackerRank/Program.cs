@@ -9,7 +9,8 @@ namespace hackerrank
     {
         static void Main(string[] args)
         {
-            JobCity.segment(3, new List<int>() { 2, 5, 4, 6, 8 });
+            int result = JobCity.segmentOutOfInterview(3, new List<int>() { 2, 5, 4, 6, 8 });
+            Console.WriteLine(result);
         }
     }
 }

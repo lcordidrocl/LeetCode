@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace HackeRank
 {
+    /// <summary>
+    /// JobCity.segment(3, new List<int>() { 2, 5, 4, 6, 8 }); -> should return 3
+    /// </summary>
     public static class JobCity
     {
         /// <summary>
@@ -54,6 +57,21 @@ namespace HackeRank
             }
 
             return maxSpaceWithinMinimunMemorySlot;
+        }
+
+        public static int segmentOutOfInterview(int x, List<int> space)
+        {
+            if (x.Equals(1))
+            {
+                return space.Max();
+            }
+            
+            for (int currentSpace = 0; currentSpace < space.Count - x; currentSpace++)
+            {
+                space[currentSpace] = space.TakeLast(space.Count - currentSpace).Take(x).Min();
+            }
+
+            return space.Take(space.Count - x).Max();
         }
     }
 }
