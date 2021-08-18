@@ -1,5 +1,6 @@
 ﻿using HackeRank;
 using HackeRank.Arrays;
+using HackeRank.HackerRankTests;
 using System;
 using System.Collections.Generic;
 
@@ -9,7 +10,7 @@ namespace hackerrank
     {
         static void Main(string[] args)
         {
-            int result = JobCity.segmentOutOfInterview(3, new List<int>() { 2, 5, 4, 6, 8 });
+            int result = CSharpTest.Mirror(1);
             Console.WriteLine(result);
         }
     }
