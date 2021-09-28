@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackeRank", "HackerRank\Hac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode", "LeetCode\LeetCode.csproj", "{22B9744A-1610-44B1-9D62-C82363EABA70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftTensity", "Soft Tensity\SoftTensity.csproj", "{A12D4297-DEBB-4EC6-B56D-96A86483AB99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{22B9744A-1610-44B1-9D62-C82363EABA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22B9744A-1610-44B1-9D62-C82363EABA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22B9744A-1610-44B1-9D62-C82363EABA70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A12D4297-DEBB-4EC6-B56D-96A86483AB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A12D4297-DEBB-4EC6-B56D-96A86483AB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A12D4297-DEBB-4EC6-B56D-96A86483AB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A12D4297-DEBB-4EC6-B56D-96A86483AB99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
